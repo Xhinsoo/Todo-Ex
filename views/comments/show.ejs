@@ -6,11 +6,14 @@
     <title>Edit</title>
   </head>
   <body>
-    <h1>Comment</h1>
+    <h1>Comment details</h1>
     <textarea name="ediTask" cols="30" rows="10">
-        <%for(let t of toDoList) {  %> 
-             <%= t.task %> <%= t.id%>
-         <%}%>    </textarea
+       
+      <%=comment.task%>
+      <%= comment.id%> 
+      </textarea
     >
+    <a href="/comments">Back to index</a>
+    <a href="/comments/<%=comment.id%>/edit">Edit</a>
   </body>
 </html>

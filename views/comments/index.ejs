@@ -9,9 +9,9 @@
     <h1>To do list</h1>
     <ul>
       <%for(let t of toDoList) {  %> 
-       <li> <%= t.task %> <%= t.id%> <a href="/index/<%=t.id%>">Edit</a></li>
+       <li> <%= t.task %> <%= t.id%> <a href="/comments/<%=t.id%>">Detail</a></li>
     <%}%>
     </ul>
-    <a href="http://localhost:3000/new">Add new task</a>
+    <a href="http://localhost:3000/comments/new">Add new task</a>
   </body>
 </html>
