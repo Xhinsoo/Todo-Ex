@@ -47,16 +47,15 @@ app.get("/comments/:id", (req, res) => {
   res.render("comments/show", { comment });
 });
 
+//render form with data, and it sends patch request using method override
 app.get("/comments/:id/edit", (req, res) => {
   const { id } = req.params;
   const comment = toDoList.find((i) => i.id === id);
   res.render("comments/edit", { comment });
 });
 
-//update comment
+//u=update comment
 app.patch("/comments/:id", (req, res) => {
-  // console.log("hello")
-
   const { id } = req.params;
   const newCommentText = req.body.comment;
   const comment = toDoList.find((i) => i.id === id);
