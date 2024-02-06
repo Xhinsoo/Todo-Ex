@@ -29,6 +29,7 @@ app.get("/comments/new", (req, res) => {
   res.render("comments/new");
 });
 
+//create
 //receives post req matching /comments route and process it and redirect to prevent double send
 app.post("/comments", (req, res) => {
   if (req.body.task === "") {
@@ -40,7 +41,7 @@ app.post("/comments", (req, res) => {
   }
 });
 
-//render detail page
+//render detail page. Read
 app.get("/comments/:id", (req, res) => {
   const { id } = req.params;
   const comment = toDoList.find((i) => i.id === id);
@@ -54,7 +55,7 @@ app.get("/comments/:id/edit", (req, res) => {
   res.render("comments/edit", { comment });
 });
 
-//u=update comment
+//update comment
 app.patch("/comments/:id", (req, res) => {
   const { id } = req.params;
   const newCommentText = req.body.comment;
@@ -63,6 +64,13 @@ app.patch("/comments/:id", (req, res) => {
   res.redirect("/comments");
 });
 
+//delete
+app.delete("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  const comment = toDoList.filter((i) => i.id !== id); //if !id filter in array
+  toDoList = comment; // todolist = newly returned array
+  res.redirect("/comments");
+});
 app.listen(3000, (req, res) => {
   console.log("listening to port 3000");
 });
